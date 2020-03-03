@@ -1,1 +1,2 @@
-# DK-MEG-Basics2020
+# Welcome to the MEG Analysis Introductory course
+
