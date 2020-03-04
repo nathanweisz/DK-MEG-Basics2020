@@ -48,7 +48,7 @@ This course will be split into two parts:
 - On a first day: An introduction will be given to the main steps of basic M/EEG analysis using a concrete dataset. Basically, this part will guide you through data import to standard stuff like evoked responses and spectral analysis.
 - On a second day (after digesting the materials of the first part), you will bring a data set of your own and try to implement the basic steps that you have learned.
 
-
+[Go to "Fieldtrip Basics"](https://github.com/nathanweisz/DK-MEG-Basics2020/blob/master/01_Fieldtrip_Basics.md)
 
 
 
