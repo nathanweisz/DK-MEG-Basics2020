@@ -33,15 +33,20 @@ Some examples are:
 
 So why still use Fieldtrip? 
 
-... The first obvious answer is: Why not? Personally I am not convinced by Matlab = commercial = evil as a good reason. Software that makes your life easier can be commerical, i.e. people can make a living of it. You also want to make a living of your work. Furthermore, many universities (such as Salzburg) have a campus license and even so an individual license is ~1-2k € (for the stuff we need). These costs are reasonable when considering the costs for a PhD student (~35k€) or Postdoc (~65k€) that need to be requested from funding agencies.
+... The first obvious answer is: Why not? Personally I am not convinced by _Matlab = commercial = evil_ as a good reason. Software that makes your life easier and keeps you productive can be commerical, i.e. people can make a living of it. You also want to make a living of your work. Furthermore, many universities (such as Salzburg) have a campus license and even so an individual license is ~1-2k € (for the stuff we need). These costs are reasonable when considering the costs for a PhD student (~35k€) or Postdoc (~65k€) that need to be requested from funding agencies.
 
-Leaving ideological reasons aside, obviously basically analysis can be done e.g. using MNE and some additional Python packages. For my group it is convenient to have the bulk of an analysis implemented in Fieldtrip, as we have relied on it so long and also have so many custom-made functions building up on it. __DON'T REINVENT THE WHEEL!__ is a mantra that I hold up strongly. But also if this was not the case (i.e. having the historic overheads), I would not be sure whether to base my main analysis solely e.g. on Python. For example, starting your analysis from Fieldtrip  facilitates using the abundant possibilities offered by other Matlab based toolboxes (e.g. using DCM in SPM). Furthermore, get away from the either-or-mentality and think in a problem solving manner. For example, if you have done most of your analysis in Fieldtrip, but now either need a tool from Python (either as single step or to complete a part of your analysis), then it is easy to either [call Python directly from Matlab](https://www.mathworks.com/help/matlab/call-python-libraries.html) or actually [importing Fieldtrip structures directly into MNE](https://mne.tools/stable/auto_tutorials/io/plot_10_reading_meg_data.html#fieldtrip-meg-eeg-data-mat). If you are an [R](https://www.r-project.org) fan (e.g. for visualization) then [important your data](https://cran.r-project.org/web/packages/R.matlab/index.html) is also not a big deal.
+Leaving ideological reasons aside, obviously basically any analysis can be done e.g. using MNE and some additional Python packages. For my group it is convenient to have the bulk of an analysis implemented in Fieldtrip, as we have relied on it so long and also have so many custom-made functions building up on it. 
 
+> __DON'T REINVENT THE WHEEL!__ is a mantra that I hold up strongly. 
 
+But also if this was not the case (i.e. having the historic overheads), I would not be sure whether to base my main analysis solely e.g. on Python. For example, starting your analysis from Fieldtrip  facilitates using the abundant possibilities offered by other Matlab based toolboxes (e.g. using DCM in SPM). Furthermore, get away from the either-or-mentality and think in a problem solving manner. For example, if you have done most of your analysis in Fieldtrip, but now either need a tool from Python (either as single step or to complete a part of your analysis), then it is easy to either [call Python directly from Matlab](https://www.mathworks.com/help/matlab/call-python-libraries.html) or actually [importing Fieldtrip structures directly into MNE](https://mne.tools/stable/auto_tutorials/io/plot_10_reading_meg_data.html#fieldtrip-meg-eeg-data-mat). If you are an [R](https://www.r-project.org) fan (e.g. for visualization) then [important your data](https://cran.r-project.org/web/packages/R.matlab/index.html) is also not a big deal.
 
 # Setup of the course
 
+This course will be split into two parts:
 
+- On a first day: An introduction will be given to the main steps of basic M/EEG analysis using a concrete dataset. Basically, this part will guide you through data import to standard stuff like evoked responses and spectral analysis.
+- On a second day (after digesting the materials of the first part), you will bring a data set of your own and try to implement the basic steps that you have learned.
 
 
 
