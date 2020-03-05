@@ -8,9 +8,9 @@ This course aims to get teach you some of the most basic steps in MEG analysis. 
 
 # What are we measuring with M/EEG?
 
+The main source of our noninvasively recorded electrophysiological signals are thought to be ionic currents causing postsynaptic potentials. Action potentials contribute far less to the recorded signal, as their short latencies does not favour signal summation (>10k neurons are required to produce a detectable signal). Although some ultrafast oscillatory activity (>500 Hz) have been reported, but the standard frequency range investigated with M/EEG is usually <100 Hz. 
 
-
-
+![MEG and EEG](./images/MEG_EEG_signals.jpg)
 
 
 
@@ -47,6 +47,12 @@ This course will be split into two parts:
 
 - On a first day: An introduction will be given to the main steps of basic M/EEG analysis using a concrete dataset. Basically, this part will guide you through data import to standard stuff like evoked responses and spectral analysis.
 - On a second day (after digesting the materials of the first part), you will bring a data set of your own and try to implement the basic steps that you have learned.
+
+
+
+
+
+
 
 [Go to "Fieldtrip Basics"](https://github.com/nathanweisz/DK-MEG-Basics2020/blob/master/01_Fieldtrip_Basics.md)
 
