@@ -52,8 +52,6 @@ This course will be split into two parts:
 
 
 
-
-
 [Go to "Fieldtrip Basics"](https://github.com/nathanweisz/DK-MEG-Basics2020/blob/master/01_Fieldtrip_Basics.md)
 
 
