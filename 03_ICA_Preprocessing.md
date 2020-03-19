@@ -1,26 +1,25 @@
 
 
+[TOC]
+
 # Your point of departure
 
-So you have conducted an experiment in the MEG lab and your continuous data is on the storage as a fif-file. For the vast majority of experiments, we normally apply Maxfilter (see below) to the data. In case you are not entering the MEG with something weird (e.g. tES or OAE-probes etc.), then -from our introspective perspective- the SNR is improved for most analysis (improving e.g. your later stats or decoding results). The immediate advantages of using Maxfilter are:
-
-- external noise (from outside the helmet) is reduced
-- bad sensors are detected and "repaired" (yielding a full sensor coverage e.g. for later stats)
-- head positions are aligned across experimental blocks and subjects
+So you have conducted an experiment in the MEG lab and your continuous data is on the storage as a fif-file. For the vast majority of experiments, we normally apply Maxfilter (see below) to the data. In case you are not entering the MEG with something weird (e.g. tES or OAE-probes etc.), then -from our introspective perspective- the SNR is improved for most analysis (improving e.g. your later stats or decoding results). 
 
 > **_What does  Maxfilter do?_**
 >
-> This is a program provided by the MEG vendor (formerly Elekta). There is also an implementation in  [MNE-Python](https://mne.tools/dev/generated/mne.preprocessing.maxwell_filter.html) and in the end probably it is not a big deal for the outcome. However using the Elekta version is probably more comfortable as it automatically detects the bad channels for you, i.e. requires minimal user interaction. In Salzburg ask the MEG group to run the tools for you.
+> This is a program provided by the MEG vendor (formerly Elekta). There is also an implementation in  [MNE-Python](https://mne.tools/dev/generated/mne.preprocessing.maxwell_filter.html) and in the end probably it is not a big deal for the outcome. However using the Elekta version is probably more comfortable as it automatically detects the bad channels for you, i.e. requires minimal user interaction. In Salzburg, **if you have absolutely no clue what Maxfilter does (which is likely the case) it is strongly advised that you ask the MEG group (e.g. Gianpaolo) to run the tools for you.**
 >
 > Maxfilter actually is a collection of tools:
 >
 > - It uses spatial signal space separation (SSS) to identify and remove external noise.
+> - Detection and "repair" of bad channels
 > - Correction for head movements.
 > - Reprojection of data to a different head position. Allows alining across blocks and participants
 >
 > Note that following Maxfiltering the channels are not fully indepdent of each other anymore, i.e. the rank will be far smaller than the amount of sensors. When running Maxfilter on the 306 MEG sensors, the rank is normally reduced to ~60-70. This needs to be taken into account e.g. for ICA or beamforming.
 >
-> **_Although is Salzburg things work nicely mostly, it is absolutely necessary that you check the output in the databrowser. Sometimes things can go horribly wrong._**
+> **_Although is Salzburg things work nicely mostly, it is absolutely necessary that you "sanity" check the output in the databrowser. Sometimes things can go horribly wrong._**
 
 So once this is done, you need to remove the main remaining artefacts, which in the standard case are cardiac activity, ocular activity and (perhaps) train related artefacts. In our standard approach we detect these artefacts using Independent Component Analysis (ICA XXXADD LINKXXX), save the indices of the artefactual components along with the relevant data structure and apply this information "on demand" to continuous or epoched data. 
 

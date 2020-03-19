@@ -28,7 +28,7 @@ Passing an empty cfg-structure would just use the default settings.
 
 Having the configuration settings visible helps also others to understand what you did and also makes it easier to identify where to make modifications when e.g. nasty reviewers request changes to your analysis (sometimes it is just setting a cfg-option to a different value and just rerunning everything on the cluster). **Make sure to set your cfg to be empty (=[]) when calling a new function.**
 
-Normally (at least the high-level) Fieldtrip functions work on specific data-strutures which we will encounter more concretely later. The main data structures are:
+Normally (at least the high-level ones) Fieldtrip functions work on specific data-strutures which we will encounter more concretely later. The main data structures are:
 
 * *Preprocessing*: Contains either continuous or epoched raw data.
 * *Timelock*: Contains evoked responses.
@@ -39,23 +39,33 @@ Normally (at least the high-level) Fieldtrip functions work on specific data-str
 
 Whatever you do, don't just start with a blind analysis. Have a clear idea what you want to know from your data. A good approach is to start with an idealized iconic figure that would support / resolve your main research question and reverse engineer the necessary analysis steps. For example I want to show that the evoked response for two conditions is different on certain sensors. Start with a boxes and arrows chart and work your way backward:
 
+
+
 ![Fieldtrip logic 1](./images/Fieldtrip_example_flow.jpg)
 
 As you can see, most standard analysis steps can be easily mapped in a straight-forward manner from "plain English" into "Fieltrip-lingo".
 
 
 
-# The MEG lab's standard approach
+# Our usual first step
 
+Most experiments using a standard setup, e.g. without bringing in devices that inject extreme artefacts (such as extreme jumps or saturation of channels) into the data can be quite effectively preprocessed using a 2-step approach (described in more detail later): 
 
+1. Remove / reduce artefacts of "external" origin using Maxfilter. 
+2. Remove / reduce artefacts of "internal" origin (e.g. blinks) using ICA. 
 
+The advantage of this approach is that:
 
+* User interaction is not zero, but quite minimal.
+* For most experiments you keep **all** trials.
 
 
 
 # What we want to do
 
+This tutorial implements what I would call a *standard analysis pipeline*. This means nothing fancy or crazy, but steps that are good enough to address many research questions. Also, when you are doing the fanciest analysis the temptation is to skip these "basic" things. However, it is important to check whether you see e.g. evoked responses when they are supposed to be there also with a meaningful topography. If you intend to doing analysis in source space, it is good practice to see whether your favorite inverse solution approach places activity where it should be. **I.e. whenver possible add possibilities to sanity check your data and use a standard analysis pipeline to do so**.
 
+[TO-DO: MAKE IMAGE OF DATA FLOW]
 
 - Preprocessing ICA ... RESTING STATE
 - Epoch data experiment
