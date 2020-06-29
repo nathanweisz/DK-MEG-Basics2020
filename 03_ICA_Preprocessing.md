@@ -19,9 +19,9 @@ So you have conducted an experiment in the MEG lab and your continuous data is o
 >
 > Note that following Maxfiltering the channels are not fully indepdent of each other anymore, i.e. the rank will be far smaller than the amount of sensors. When running Maxfilter on the 306 MEG sensors, the rank is normally reduced to ~60-70. This needs to be taken into account e.g. for ICA or beamforming.
 >
-> **_Although is Salzburg things work nicely mostly, it is absolutely necessary that you "sanity" check the output in the databrowser. Sometimes things can go horribly wrong._**
+> **_Although in Salzburg things work nicely mostly, it is absolutely necessary that you "sanity" check the output in the databrowser. Sometimes things can go horribly wrong._**
 
-So once this is done, you need to remove the main remaining artefacts, which in the standard case are cardiac activity, ocular activity and (perhaps) train related artefacts. In our standard approach we detect these artefacts using Independent Component Analysis (ICA XXXADD LINKXXX), save the indices of the artefactual components along with the relevant data structure and apply this information "on demand" to continuous or epoched data. 
+So once this is done, you need to remove the main remaining artefacts, which in the standard case are cardiac activity, ocular activity and (perhaps) train related artefacts. In our standard approach we detect these artefacts using Independent Component Analysis (see e.g. [here](http://arnauddelorme.com/ica_for_dummies/), save the indices of the artefactual components along with the relevant data structure and apply this information "on demand" to continuous or epoched data. 
 
 **Via this approach, you keep all trials for the vast majority of experiments!** 
 

@@ -70,7 +70,6 @@ This tutorial implements what I would call a *standard analysis pipeline*. This 
 - Preprocessing ICA ... RESTING STATE
 - Epoch data experiment
 - timelockanalysis
-- Excursion: simple decoding
 - spectral analaysis
 - 1 beamformer + virtual channel reconstruction
 

@@ -16,7 +16,7 @@ The main source of our noninvasively recorded electrophysiological signals are t
 
 # Why is this cool?
 
-The reason that this is cool is that noninvasively, this is the only way to tap into neural activity as it unfolds in real-time. Of course, this non-invasive measurement
+The reason that this is cool is that noninvasively, this is the only way to tap into neural activity as it unfolds in real-time (see image from [Sejnowski et al., 2014](https://www.nature.com/articles/nn.3839)). Of course,  non-invasive measurements come with downsides, as your assessment lacks fine-grained details. What you get is a blurred big-picture view of neural activity at high temporal resolution. **Whether this is cool for you depends on your research question at the end of the day!**
 
 ![METHODS](./images/41593_2014_Article_BFnn3839_Fig1_HTML.jpg)
 
@@ -39,7 +39,7 @@ Leaving ideological reasons aside, obviously basically any analysis can be done 
 
 > __DON'T REINVENT THE WHEEL!__ is a mantra that I hold up strongly. 
 
-But also if this was not the case (i.e. having the historic overheads), I would not be sure whether to base my main analysis solely e.g. on Python. For example, starting your analysis from Fieldtrip  facilitates using the abundant possibilities offered by other Matlab based toolboxes (e.g. using DCM in SPM). Furthermore, get away from the either-or-mentality and think in a problem solving manner. For example, if you have done most of your analysis in Fieldtrip, but now either need a tool from Python (either as single step or to complete a part of your analysis), then it is easy to either [call Python directly from Matlab](https://www.mathworks.com/help/matlab/call-python-libraries.html) or actually [importing Fieldtrip structures directly into MNE](https://mne.tools/stable/auto_tutorials/io/plot_10_reading_meg_data.html#fieldtrip-meg-eeg-data-mat). If you are an [R](https://www.r-project.org) fan (e.g. for visualization) then [important your data](https://cran.r-project.org/web/packages/R.matlab/index.html) is also not a big deal.
+But also if this was not the case (i.e. having the historic overheads), I would not be sure whether to base my main analysis solely e.g. on Python. For example, starting your analysis from Fieldtrip  facilitates using the abundant possibilities offered by other Matlab based toolboxes (e.g. using DCM in SPM). Furthermore, abandon an either-or-mentality  (if you are that type of person) and **think in a problem solving manner**. For example, if you have done most of your analysis in Fieldtrip, but now either need a tool from Python (either as single step or to complete a part of your analysis), then it is easy to either [call Python directly from Matlab](https://www.mathworks.com/help/matlab/call-python-libraries.html) or actually [importing Fieldtrip structures directly into MNE](https://mne.tools/stable/auto_tutorials/io/plot_10_reading_meg_data.html#fieldtrip-meg-eeg-data-mat). If you are an [R](https://www.r-project.org) fan (e.g. for visualization) then [importing your data](https://cran.r-project.org/web/packages/R.matlab/index.html) is also not a big deal (if you are a user of [RMarkdown](https://rstudio.github.io/reticulate/#python-in-r-markdown) then you could also use MNE-Python to get your data into R).
 
 # Setup of the course
 
@@ -47,8 +47,6 @@ This course will be split into two parts:
 
 - On a first day: An introduction will be given to the main steps of basic M/EEG analysis using a concrete dataset. Basically, this part will guide you through data import to standard stuff like evoked responses and spectral analysis.
 - On a second day (after digesting the materials of the first part), you will bring a data set of your own and try to implement the basic steps that you have learned.
-
-
 
 
 
