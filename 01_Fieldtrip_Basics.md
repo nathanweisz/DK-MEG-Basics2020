@@ -38,6 +38,7 @@ Normally (at least the high-level ones) Fieldtrip functions work on specific dat
 # Make a "pipeline" and translate it into Fieldtrip steps
 
 Whatever you do, don't just start with a blind analysis. Have a clear idea what you want to know from your data. A good approach is to start with an idealized iconic figure that would support / resolve your main research question and reverse engineer the necessary analysis steps. For example I want to show that the evoked response for two conditions is different on certain sensors. Start with a boxes and arrows chart and work your way backward:
+Whatever you do, don't just start with a blind analysis. Have a clear idea what you want to know from your data. A good approach is to **start with an idealized iconic figure that would support / resolve your main research question and reverse engineer the necessary analysis steps**. For example I want to show that the evoked response for two conditions is different on certain sensors. Start with a boxes and arrows chart and work your way backward:
 
 
 
