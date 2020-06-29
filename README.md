@@ -2,7 +2,7 @@
 
 [TOC]
 
-This course aims to get teach you some of the most basic steps in MEG analysis. Since the data is very similar and analysis diverges only at very few points what you will learn will also be applicable to EEG analysis. By this point I will assume that you have at least some basic knowledge (ADD A LINK??) about M/EEG, so that we don't need to invest too much time beyond some short reminders. While some coding experience with Matlab would make you more comfortable right from the start, we are not implementing any rocket science. So don't worry.
+This course aims to get teach you some of the most basic steps in MEG analysis. Since the data is very similar and analysis diverges only at very few points what you will learn will also be applicable to EEG analysis. By this point I will assume that you have at least some basic knowledge (see e.g. [here](https://www.cell.com/neuron/pdf/S0896-6273(19)30599-9.pdf)) about M/EEG, so that we don't need to invest too much time beyond some short reminders. While some coding experience with Matlab would make you more comfortable right from the start, we are not implementing any rocket science. So don't worry.
 
 
 
@@ -12,13 +12,13 @@ The main source of our noninvasively recorded electrophysiological signals are t
 
 ![MEG and EEG](./images/MEG_EEG_signals.jpg)
 
-
+[Note that in the Baillet-image an axon is incorrectly depicted as apical dendrite. ... But you get the point anyhow]
 
 # Why is this cool?
 
+The reason that this is cool is that noninvasively, this is the only way to tap into neural activity as it unfolds in real-time. Of course, this non-invasive measurement
 
-
-
+![METHODS](./images/41593_2014_Article_BFnn3839_Fig1_HTML.jpg)
 
 # Why Fieldtrip?
 
