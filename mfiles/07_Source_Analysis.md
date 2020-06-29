@@ -42,7 +42,10 @@ cfg.mrifile = [];
 cfg.sens = grad;
  
 [mri_aligned, headshape, hdm, mri_segmented] = obob_coregister(cfg);
+
+save(fullfile(datapath, 'headstuff4DK2020.mat'), 'mri_aligned', 'hdm')
 ```
 
 
 
+JUST DO IT THE OBOB WYA
