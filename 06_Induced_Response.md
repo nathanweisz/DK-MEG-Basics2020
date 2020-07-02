@@ -178,3 +178,5 @@ ft_multiplotTFR(cfg, tfrI_h)
 
 Also we can again take a look at a condition contrast using analogous code as above.
 
+In the next chapter we will exlpoit one of the most acclaimed powers of the MEG data, doing [source analysis](07_Source_Analysis.md)
+
