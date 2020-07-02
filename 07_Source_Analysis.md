@@ -19,7 +19,11 @@ Putting artefacts aside, you need to reflect whether the fact that your electrod
 
 # The ingredients for source analysis
 
+Apart of the M/EEG data that you have recorded from many locations around the head and your favourite source localization algorithm (=*inverse operator*), you need to create a *forward model* which estimates for a defined location in the brain the surface (M/EEG) signal it would produce. The forward model is captured in the so-called leadfield matrix. In order to obtain this crucial piece of information you need:
 
+* a model of the head (volume conduction model) --> *ft_prepare_headmodel.m*
+* the location of the sensors or electrodes with respect to the head. 
+* the points that you define as sources, for which you want to have activity estimated --> *ft_prepare_sourcemodel.m*
 
 
 
@@ -54,15 +58,17 @@ cfg.sens = grad;
 save(fullfile(datapath, 'headstuff4DK2020.mat'), 'mri_aligned', 'hdm')
 ```
 
+Note that using the *obob_coregister* tool automatically runs *ft_prepare_headmodel.m* for you, so you obtain a for MEG quite simple single-shell headmodel based on a method proposed by Nolte (2003). Fieldtrip includes fancier headmodels if you need them.
+
 In general it is not a bad idea to also run your source analysis using the template brain approach. Depending on your interests the results are often quite satisfactory and a good benchmark for your manual co-registration. Using individual MRIs, your results should usually even be better. If things get worse, this is a good indication that something went wrong during your co-registration.
 
 
 
 # Getting your forward model
 
+Now we have almost all the ingredients mentioned above. What is missing is the defined location of the sources for which we want to estimate activity. For this we use a predefined grid with 1 cm spacing in MNI space and warp the position of these points into the head-space of the individual. This approach offers the advantage that you get sourcemodels for each individual, that have common positions in MNI space. This nice feature makes averaging and statistics across participants a lot easier.
 
-
-
+Here some snippets that bring you to the sourcemodel.
 
 ```matlab
 
@@ -115,7 +121,7 @@ This is what you should see (use the Rotate3D tool):
 
 ![HEADMODELSTUFF](./images/grid_sens_brain.jpg)
 
-Now do your leadfield.
+Now you are ready to compute your leadfield.
 
 ```matlab
 restoredefaultpath
@@ -135,11 +141,13 @@ save(fullfile(datapath, 'individual_grid.mat'), 'grid')
 save(fullfile(datapath, 'individual_leadfield.mat'), 'lf')
 ```
 
+Remember that this is an absolutely necessary procedure for any type of source analysis you want to perform. Being sloppy with your forward modeling also means your results get worse (e.g. adding noise in case your forward modeling error is not systematic).
 
+# Source analysis the Salzburg way
 
-# Source analysis the OBOB way
+The central function in Fieldtrip to then run some source analysis is *ft_sourceanalyis.m* which has different methods implemented. Which one you use depends in the end somewhat on habit and experience. This is also reflected in how well different methods are implemented. For example the Fieldtrip folks were the first among the common toolboxes to support beamformers which was the method of choice at the Donders Institute. The Brainstorm or MNE folks are more likely to use Minimum Norm. We are not ideological in this regard.
 
-
+The MEG group in Salzburg has implemented a wrapper function around the ft_sourceanalysis function using lcmv-beamforming in order to obtain so-called virtual channels that are represented in a way as sensor level data (so-called preproc structure). The approach is split into two parts: the first one computes the actual beamforming filters (which require a covariance matrix obtained from ft_timelockanalysis); the second one applies the beamformer filters to the data.
 
 ```matlab
 cfg=[];
@@ -159,7 +167,7 @@ cfg.spatial_filter = filt;
 alldataS = obob_svs_beamtrials_lcmv(cfg, alldata)
 ```
 
-
+The output *alldataS* should look like a preprocessing structure. The advantage is that now we are able to apply any sensor level method to these virtual channels. For example averaging:
 
 ```matlab
 cfg=[];
@@ -185,11 +193,11 @@ plot(avg_U_bl.time, sqrt(mean(avg_I_bl.avg.^2)))
 legend('Uninf', 'Inf')
 ```
 
-
+The output should look like this:
 
 ![SourceGFP](./images/Source_conditions_GFP.jpg)
 
-
+Unfortunately visualizing the data "topographically" using the normal tools (e.g. ft_multiplotER) won't work. So we have created a wrapper function to plot the info you are interested in onto a brain. Here the peak of the evoked response.
 
 ```matlab
 %%
@@ -217,13 +225,13 @@ cfg.funcolorlim   = [0.0 max(S_avg_I_bl.avg(:))];
 ft_sourceplot(cfg, S_avg_I_bl);
 ```
 
-
+Note that we are using the MNI brain along with the grid positions in MNI space. This allows me to also use an atlas if I wanted to. You should see something like this:
 
 ![Source_ORTHO1](./images/Source_cond_ortho.jpg)
 
 
 
-PLOT DIFFERENCE
+You can also plot the difference.
 
 ```matlab
 S_avg_Diff=S_avg_U_bl;
@@ -237,7 +245,7 @@ cfg.funcolorlim   = [0.0 max(S_avg_Diff.avg(:))];
 ft_sourceplot(cfg, S_avg_Diff);
 ```
 
-GET A VIRTUAL CHANNEL
+As said *alldataS* is like a preprocessing structure so you can do anything that you could apply on sensor level data. Some things however may be computationally too heavy (e.g. connectivity analysis) or you are only interested in one or a few specific locations. This could be done in many ways, e.g. by defining a new sourcemodel with only a few ROIS. Here I will take one point closest to the maximum evoked response in visual cortex. We will apply time-frequency analysis, just for fun. 
 
 ```matlab
 %% [-32 -76 -5] ... MAXIMUM EVOKED RP
@@ -269,6 +277,6 @@ cfg.zlim='maxabs';
 ft_singleplotTFR(cfg, tfrS)
 ```
 
-CRISP DESYNC
+Unsurprisingly you can see a crisp desynchronization in the alpha / beta range.
 
 ![Source_DESYNC](./images/VC_Desync.jpg)
