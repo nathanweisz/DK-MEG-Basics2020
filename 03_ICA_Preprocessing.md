@@ -153,4 +153,7 @@ Displaying the same segment as above the effects should become immediately obvio
 ![MEG and EEG](./images/databrowser_cleaned.jpg)
 
 
+The next chapter will deal with the [epoching of the data](04_Epoch_Data.md)
+
+
 
