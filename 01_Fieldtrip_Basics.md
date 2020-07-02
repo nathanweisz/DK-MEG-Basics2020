@@ -65,8 +65,6 @@ The advantage of this approach is that:
 
 This tutorial implements what I would call a *standard analysis pipeline*. This means nothing fancy or crazy, but steps that are good enough to address many research questions. Also, when you are doing the fanciest analysis the temptation is to skip these "basic" things. However, it is important to check whether you see e.g. evoked responses when they are supposed to be there also with a meaningful topography. If you intend to doing analysis in source space, it is good practice to see whether your favorite inverse solution approach places activity where it should be. **I.e. whenver possible add possibilities to sanity check your data and use a standard analysis pipeline to do so**.
 
-[TO-DO: MAKE IMAGE OF DATA FLOW]
-
 - Preprocessing ICA ... RESTING STATE
 - Epoch data experiment
 - timelockanalysis
