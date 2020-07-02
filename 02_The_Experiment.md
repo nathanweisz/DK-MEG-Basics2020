@@ -33,3 +33,5 @@ Following a silent period of 750 ms, the two tones were played simultaneously fo
 After every response, feedback in form of a happy and sad smiley was shown for 400ms.
 
 There were in total 300 trials per block (100 per cue). For the informative trials, this resulted in 150 valid trials, 30 invalid trials and 20 no-target trials. For the uninformative trials, 45 high tone target trials, 45 low tone target trials and 10 no-target trials were presented. One block was ~15 minutes long.
+
+Now it's time to move on to the [preprocessing](03_ICA_Preprocessing.md).
