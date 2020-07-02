@@ -167,3 +167,5 @@ ft_multiplotER(cfg, avg_diff)
 ```
 
 > Discuss a little what you see. Change the layout.
+
+It's time to take a different look at the data, with the [induced responses](06_Induced_Response.md).

@@ -71,6 +71,8 @@ This tutorial implements what I would call a *standard analysis pipeline*. This 
 - spectral analaysis
 - 1 beamformer + virtual channel reconstruction
 
+Now you can move on to the [description of the experiment](02_The_Experiment.md)
+
 
 
 
