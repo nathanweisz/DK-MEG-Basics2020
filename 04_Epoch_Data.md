@@ -243,3 +243,6 @@ save(fullfile(datapath, 'epochs.mat'), 'alldata', '-v7.3')
 ```
 
 > Note: Since most calculations are done on the cluster we ususally do not save epoched data anymore. 
+
+
+Now it is finally time for [evoked responses](05_Evoked_Response.md)
